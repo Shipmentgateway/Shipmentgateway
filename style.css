@@ -1,0 +1,58 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f6f8;
+}
+
+/* GATE */
+#gate {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background: #222;
+  display: flex;
+  z-index: 999;
+}
+
+.door {
+  width: 50%;
+  height: 100%;
+  background: #555;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 1.5s ease;
+}
+
+.door img {
+  width: 70%;
+}
+
+.left.open {
+  transform: translateX(-100%);
+}
+
+.right.open {
+  transform: translateX(100%);
+}
+
+/* SITE */
+#site {
+  display: none;
+  padding: 20px;
+}
+
+header {
+  text-align: center;
+  padding: 40px 20px;
+  background: #0a3d8f;
+  color: white;
+}
+
+section {
+  background: white;
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 900px;
+  border-radius: 6px;
+}
