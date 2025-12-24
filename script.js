@@ -1,33 +1,36 @@
-// Shipment Gateway intro animation
-window.addEventListener("DOMContentLoaded", () => {
-  const gate = document.getElementById("gate");
-  const site = document.getElementById("site");
-  const year = document.getElementById("year");
-  if (year) year.textContent = new Date().getFullYear();
-
-  // Safety: if gate missing, show site anyway
-  if (!gate || !site) return;
-
-  // Run animation sequence
-  // 1) small delay
-  setTimeout(() => {
-    gate.classList.add("open");      // doors start opening
-  }, 400);
-
-  // 2) truck comes forward after doors start moving
-  setTimeout(() => {
-    gate.classList.add("truckgo");   // truck moves toward user
-  }, 900);
-
-  // 3) finish: fade out gate and reveal site
-  setTimeout(() => {
-    gate.classList.add("fadeout");
-    site.classList.remove("site-hidden");
-    site.classList.add("site-show");
-  }, 3200);
-
-  // 4) remove gate from layout after fade
-  setTimeout(() => {
-    gate.style.display = "none";
-  }, 3900);
+// Footer year
+document.addEventListener("DOMContentLoaded", () => {
+  const y = document.getElementById("year");
+  if (y) y.textContent = new Date().getFullYear();
 });
+
+// Gate intro (run once per browser session)
+(function(){
+  const gate = document.getElementById("gate");
+  if (!gate) return;
+
+  // Run ONLY on home page
+  const isHome = document.body.classList.contains("page-home");
+  if (!isHome) {
+    gate.style.display = "none";
+    return;
+  }
+
+  const seen = sessionStorage.getItem("sg_gate_seen");
+  if (seen) {
+    gate.style.display = "none";
+    return;
+  }
+
+  // Start animation
+  requestAnimationFrame(() => gate.classList.add("open"));
+
+  // Fade out after pass animation finishes
+  setTimeout(() => gate.classList.add("fade-out"), 50);
+
+  // Remove from layout and remember
+  setTimeout(() => {
+    sessionStorage.setItem("sg_gate_seen", "1");
+    gate.style.display = "none";
+  }, 3600);
+})();
