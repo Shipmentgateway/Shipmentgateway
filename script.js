@@ -1,33 +1,18 @@
-(function () {
-  const yearEl = document.getElementById("year");
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
+window.addEventListener("load", () => {
+  const leftDoor = document.querySelector(".door-left");
+  const rightDoor = document.querySelector(".door-right");
+  const truck = document.querySelector(".intro-truck");
 
-  const gate = document.getElementById("gate");
-  const site = document.getElementById("site");
+  setTimeout(() => {
+    leftDoor.classList.add("open");
+    rightDoor.classList.add("open");
+  }, 600);
 
-  const hasPlayed = localStorage.getItem("sg_gate_played") === "1";
+  setTimeout(() => {
+    truck.classList.add("move");
+  }, 1400);
 
-  function showSite() {
-    if (gate) gate.style.display = "none";
-    if (site) site.style.display = "block";
-  }
-
-  // If already played once, skip animation
-  if (hasPlayed) {
-    showSite();
-    return;
-  }
-
-  // Play animation once
-  window.addEventListener("load", () => {
-    setTimeout(() => {
-      document.querySelector(".left")?.classList.add("open");
-      document.querySelector(".right")?.classList.add("open");
-
-      setTimeout(() => {
-        localStorage.setItem("sg_gate_played", "1");
-        showSite();
-      }, 1450);
-    }, 650);
-  });
-})();
+  setTimeout(() => {
+    document.body.classList.add("show-site");
+  }, 3600);
+});
