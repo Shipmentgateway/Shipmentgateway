@@ -1,75 +1,93 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Shipment Gateway</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="./style.css"/>
 </head>
-<body>
+<body class="page-home">
 
-<!-- INTRO GATE -->
-<div id="gate">
-  <div class="gate-bg"></div>
+<!-- GATE INTRO (runs once per session) -->
+<div id="gate" class="gate" aria-hidden="true">
+  <div class="gate-scene"></div>
 
-  <div class="door left">
-    <img src="logo-left.png" alt="Logo Left">
-  </div>
-
-  <div class="door right">
-    <img src="logo-right.png" alt="Logo Right">
-  </div>
-
-  <img id="gateTruck" src="truck.png" alt="Truck">
-</div>
-
-<!-- WEBSITE -->
-<div id="site" class="hidden">
-
-  <header class="topbar">
-    <div class="brand">
-      <strong>Shipment Gateway</strong>
-      <span>Your one-stop gateway for all your logistics needs</span>
+  <div class="door door-left">
+    <div class="door-logo">
+      <img src="./logo-left.png" alt="Shipment Gateway Logo Left">
     </div>
+  </div>
 
-    <nav class="menu">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="services.html">Services</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
+  <div class="door door-right">
+    <div class="door-logo">
+      <img src="./logo-right.png" alt="Shipment Gateway Logo Right">
+    </div>
+  </div>
 
-  <main class="page">
-    <section class="hero" style="background-image:url('hero.jpg')">
-      <div class="hero-overlay">
-        <h1>SHIPMENT GATEWAY</h1>
-        <p>Your one-stop gateway for all your logistics needs</p>
-        <a class="btn" href="services.html">Learn More</a>
-      </div>
-    </section>
-
-    <section class="cards">
-      <div class="card"><h3>24/7</h3><p>Support</p></div>
-      <div class="card"><h3>KSA</h3><p>Coverage</p></div>
-      <div class="card"><h3>B2B</h3><p>Logistics</p></div>
-    </section>
-
-    <section class="section">
-      <h2>About Shipment Gateway</h2>
-      <p>We are based in Saudi Arabia, providing reliable logistics services with professional coordination and on-time delivery.</p>
-    </section>
-
-    <footer class="footer">
-      Contact:
-      <a href="mailto:contact@shipmentgateway.com">
-        contact@shipmentgateway.com
-      </a>
-    </footer>
-  </main>
-
+  <img class="gate-truck" src="./truck.png" alt="Truck">
+  <div class="gate-vignette"></div>
 </div>
 
-<script src="script.js"></script>
+<!-- SITE -->
+<header class="topbar">
+  <div class="brand">
+    <div class="brand-title">Shipment Gateway</div>
+    <div class="brand-tagline">Your one-stop gateway for all your logistics needs</div>
+  </div>
+
+  <nav class="menu">
+    <a class="active" href="./index.html">Home</a>
+    <a href="./about.html">About</a>
+    <a href="./services.html">Services</a>
+    <a href="./contact.html">Contact</a>
+  </nav>
+
+  <a class="reach" href="./contact.html">Reach us</a>
+</header>
+
+<main class="main">
+  <section class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-overlay" aria-hidden="true"></div>
+
+    <div class="hero-inner">
+      <h1>SHIPMENT GATEWAY</h1>
+      <p>Your one-stop gateway for all your logistics needs</p>
+      <div class="hero-actions">
+        <a class="btn primary" href="./services.html">Learn More</a>
+        <a class="btn" href="./contact.html">Contact</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div class="stat">
+      <div class="stat-big">24/7</div>
+      <div class="stat-small">Support</div>
+    </div>
+    <div class="stat">
+      <div class="stat-big">KSA</div>
+      <div class="stat-small">Coverage</div>
+    </div>
+    <div class="stat">
+      <div class="stat-big">B2B</div>
+      <div class="stat-small">Logistics</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>About Shipment Gateway</h2>
+    <h3>Your Reliable Logistics Partner</h3>
+    <p>
+      We are based in Saudi Arabia and focused on dependable logistics services with clear communication and on-time execution.
+    </p>
+  </section>
+
+  <footer class="footer">
+    © <span id="year"></span> Shipment Gateway. All rights reserved.
+  </footer>
+</main>
+
+<script src="./script.js"></script>
 </body>
 </html>
